@@ -28,6 +28,10 @@ const CharStyles = styled.div`
 `;
 
 class CharCard extends Component {
+  state = {
+    homeworld: null
+  };
+
   render() {
     return (
       <CharStyles >
@@ -40,7 +44,10 @@ class CharCard extends Component {
         {/* <div className="edited">{this.props.char.edited}</div> */}
         <div className="eye_color">Eye Color: {this.props.char.eye_color}</div>
         {/* {this.props.char.films} */}
-        {/* <div className="homeworld">Homeworld: {this.props.char.homeworld}</div> */}
+        
+        <div className="homeworld">
+        {this.state.homeworld !== null ? this.state.homeworld.name : null}
+        </div>
         <div className="mass">Mass: {this.props.char.mass}kg</div>
         <div className="skin_color">Skin Color: {this.props.char.skin_color}</div>
         {/* {this.props.char.species} */}
@@ -48,6 +55,19 @@ class CharCard extends Component {
         {/* {this.props.char.vehicles} */}
       </CharStyles >
     );
+  }
+
+  componentDidMount() {
+    fetch(this.props.char.homeworld)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        this.setState({ homeworld: data });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
   }
 }
 
