@@ -9,7 +9,7 @@ const CharContainerStyles = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1300px;
-  min-width: 700px;
+  min-width: 900px;
   margin-top: 10px;
 `
 

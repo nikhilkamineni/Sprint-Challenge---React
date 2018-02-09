@@ -46,7 +46,7 @@ class CharCard extends Component {
         {/* {this.props.char.films} */}
         
         <div className="homeworld">
-        {this.state.homeworld !== null ? this.state.homeworld.name : null}
+        Homeworld: {this.state.homeworld !== null ? this.state.homeworld.name : null}
         </div>
         <div className="mass">Mass: {this.props.char.mass}kg</div>
         <div className="skin_color">Skin Color: {this.props.char.skin_color}</div>
